@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+</head>
+<style>
+    body {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#color-box {
+    background-color: rgb(13, 0, 0);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#change-color-button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#change-color-button:hover {
+    background-color: darkgrey;
+}
+
+</style>
+<body>
+    <div id="color-box">
+        <p id="color-name">Background Color : Red</p>
+    </div>
+    <button id="change-color-button">CLICK ME</button>
+    <script>
+        function changeBackgroundColor() {
+    const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const currentColor = document.body.style.backgroundColor;
+    let newColor = colors[Math.floor(Math.random() * colors.length)];
+
+    while (newColor === currentColor) {
+        newColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    document.body.style.backgroundColor = newColor;
+    document.getElementById('color-name').textContent = `Background Color : ${newColor}`;
+}
+
+document.getElementById('change-color-button').addEventListener('click', changeBackgroundColor);
+
+    </script>
+</body>
+</html>
